@@ -44,7 +44,7 @@ onValue(shoppingListInDB, function(snapshot) {
             appendItemToShoppingListEl(currentItem)
         }    
     } else {
-        shoppingListEl.innerHTML = "No items here... yet"
+        shoppingListEl.innerHTML = `No items here... yet. <br><br> Type in the box and press "Add to cart" to add items. Tap added items to delete.`
     }
 })
 
