@@ -51,7 +51,13 @@ onValue(shoppingListInDB, function(snapshot) {
 
 // CLEAR FIELDS FUNCTIONALITY------------------------------------------
 
-clearAllButton.addEventListener("click", clearShoppingListEl)
+clearAllButton.addEventListener("click", function() {
+    clearShoppingListEl()
+    let exactLocationOfItemInDB = ref(database, `shoppingList`)
+        
+        remove(exactLocationOfItemInDB)
+
+})
 
 function clearShoppingListEl() {
     shoppingListEl.innerHTML = ""
