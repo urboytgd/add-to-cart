@@ -13,19 +13,22 @@ const inputFieldEl = document.getElementById("input-field")
 const addButtonEl = document.getElementById("add-button")
 const shoppingListEl = document.getElementById("shopping-list")
 
+// CLICK AND ENTER EVENT LISTENERS ------------------------------------
+inputFieldEl.addEventListener("keydown", function (event) {
+    let inputValue = inputFieldEl.value
+    if (event.key === "Enter") {
+    push(shoppingListInDB, inputValue)
+    clearInputFieldEl()
+    }
+})
+
 addButtonEl.addEventListener("click", function() {
     let inputValue = inputFieldEl.value
     push(shoppingListInDB, inputValue)
     clearInputFieldEl()
 })
 
-addButtonEl.addEventListener("keydown", function (event) {
-    let inputValue = inputFieldEl.value
-    if (event.key === 13) {
-    push(shoppingListInDB, inputValue)
-    clearInputFieldEl()
-    }
-})
+// DATABASE CROSSCHECKING FUNCTIONALITY--------------------------------
 
 onValue(shoppingListInDB, function(snapshot) {
     if (snapshot.exists()) {
@@ -45,6 +48,8 @@ onValue(shoppingListInDB, function(snapshot) {
     }
 })
 
+// CLEAR FIELDS FUNCTIONALITY------------------------------------------
+
 function clearShoppingListEl() {
     shoppingListEl.innerHTML = ""
 }
@@ -52,6 +57,8 @@ function clearShoppingListEl() {
 function clearInputFieldEl() {
     inputFieldEl.value = ""
 }
+
+// ADD ITEM TO LIST FUNCTIONALITY--------------------------------------
 
 function appendItemToShoppingListEl(item) {
     let itemID = item[0]
