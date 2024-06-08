@@ -17,7 +17,7 @@ const clearAllButton = document.getElementById("clear-button")
 // CLICK AND ENTER EVENT LISTENERS ------------------------------------
 inputFieldEl.addEventListener("keydown", function (event) {
     let inputValue = inputFieldEl.value
-    if (event.key === "Enter") {
+    if (event.key === "Enter" && inputValue.length > 0) {
     push(shoppingListInDB, inputValue)
     clearInputFieldEl()
     }
@@ -25,9 +25,13 @@ inputFieldEl.addEventListener("keydown", function (event) {
 
 addButtonEl.addEventListener("click", function() {
     let inputValue = inputFieldEl.value
-    push(shoppingListInDB, inputValue)
-    clearInputFieldEl()
+    if (inputValue.length > 0) {
+        push(shoppingListInDB, inputValue)
+        clearInputFieldEl()
+    }
 })
+
+
 
 // DATABASE CROSSCHECKING FUNCTIONALITY--------------------------------
 
