@@ -45,7 +45,14 @@ onValue(shoppingListInDB, function(snapshot) {
             appendItemToShoppingListEl(currentItem)
         }    
     } else {
-        shoppingListEl.innerHTML = `No items here... yet. <br><br> Type in the box and press "Add to cart" to add items. Tap added items to delete.`
+        shoppingListEl.innerHTML = `
+        No items here... yet. 
+        <br><br>
+        Type in the box and press "Add to cart" to add items. If you are on your phone, pressing the "ENTER" on your keyboard does the same.
+        <br><br>
+        Tap added items to delete.
+        <br><br>
+        Simple as that!`
     }
 })
 
