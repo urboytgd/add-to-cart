@@ -12,6 +12,7 @@ const shoppingListInDB = ref(database, "shoppingList")
 const inputFieldEl = document.getElementById("input-field")
 const addButtonEl = document.getElementById("add-button")
 const shoppingListEl = document.getElementById("shopping-list")
+const clearAllButton = document.getElementById("clear-button")
 
 // CLICK AND ENTER EVENT LISTENERS ------------------------------------
 inputFieldEl.addEventListener("keydown", function (event) {
@@ -49,6 +50,8 @@ onValue(shoppingListInDB, function(snapshot) {
 })
 
 // CLEAR FIELDS FUNCTIONALITY------------------------------------------
+
+clearAllButton.addEventListener("click", clearShoppingListEl)
 
 function clearShoppingListEl() {
     shoppingListEl.innerHTML = ""
