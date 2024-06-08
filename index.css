@@ -52,11 +52,16 @@ button:hover {
     background-color: #545050;
 }
 
+#clear-button:hover {
+    background-color: #160b01;
+}
+
 ul {
     list-style-type: none;
     padding: 0;
     display: flex;
     flex-wrap: wrap;
+    flex-direction: column-reverse;
     gap: 10px;
 }
 
