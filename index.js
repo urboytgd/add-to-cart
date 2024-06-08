@@ -2,7 +2,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebas
 import { getDatabase, ref, push, onValue, remove } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-database.js"
 
 const appSettings = {
-    databaseURL: "https://realtime-database-df319-default-rtdb.europe-west1.firebasedatabase.app/"
+    databaseURL: "https://realtime-database-21606-default-rtdb.firebaseio.com/"
 }
 
 const app = initializeApp(appSettings)
@@ -15,10 +15,16 @@ const shoppingListEl = document.getElementById("shopping-list")
 
 addButtonEl.addEventListener("click", function() {
     let inputValue = inputFieldEl.value
-    
     push(shoppingListInDB, inputValue)
-    
     clearInputFieldEl()
+})
+
+addButtonEl.addEventListener("keydown", function (event) {
+    let inputValue = inputFieldEl.value
+    if (event.key === 13) {
+    push(shoppingListInDB, inputValue)
+    clearInputFieldEl()
+    }
 })
 
 onValue(shoppingListInDB, function(snapshot) {
